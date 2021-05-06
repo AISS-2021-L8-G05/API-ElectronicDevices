@@ -30,6 +30,8 @@ public class MapShopRepository implements ShopRepository{
 		deviceMap = new HashMap<Integer, Device>();
 		
 		// Create devices
+		
+			// macBookPro16
 		Device macBookPro16 = new Device();
 		macBookPro16.setName("MacBook Pro");
 		macBookPro16.setBrand("Apple");
@@ -46,6 +48,117 @@ public class MapShopRepository implements ShopRepository{
 		macBookPro16Colors.add("Space grey"); macBookPro16Colors.add("Silver");
 		macBookPro16.setSetColors(macBookPro16Colors);
 		addDevice(macBookPro16);
+		
+			// Galaxy S20 FE
+		Device galaxyS20FE = new Device();
+		galaxyS20FE.setName("Galaxy S20 FE");
+		galaxyS20FE.setBrand("Samsung");
+		galaxyS20FE.setPrice(649.);
+		galaxyS20FE.setScreenSize(6.5);
+		galaxyS20FE.setWeight(0.19);
+		galaxyS20FE.setDeviceType(DeviceType.MOBILE);
+		galaxyS20FE.setStorage(128);
+		galaxyS20FE.setProcessor("Samsung Exynos 990");
+		galaxyS20FE.setMemory(6);
+		galaxyS20FE.setOS("One UI");
+		galaxyS20FE.setCamera("Principal 12Mp");
+		Set<String> galaxyS20FEColors = new HashSet<String>();
+		galaxyS20FEColors.add("Cloud Navy"); galaxyS20FEColors.add("Cloud Red"); 
+		galaxyS20FEColors.add("Cloud Orange"); galaxyS20FEColors.add("Cloud white");
+		galaxyS20FE.setSetColors(galaxyS20FEColors);
+		addDevice(galaxyS20FE);
+		
+			// Xiaomi Mi Tv 4s
+		Device miTv4s = new Device();
+		miTv4s.setName("Mi TV 4s");
+		miTv4s.setBrand("Xiaomi");
+		miTv4s.setPrice(449.);
+		miTv4s.setScreenSize(55.);
+		miTv4s.setWeight(12.45);
+		miTv4s.setDeviceType(DeviceType.SMART_TV);
+		miTv4s.setStorage(8);
+		miTv4s.setProcessor("MediaTek MSD6886");
+		miTv4s.setMemory(2);
+		miTv4s.setOS("Android TV");
+		miTv4s.setCamera("-");
+		Set<String> miTV4sColors = new HashSet<String>();
+		miTV4sColors.add("Black");
+		miTv4s.setSetColors(miTV4sColors);
+		addDevice(miTv4s);
+		
+			// Huawei P20 Lite
+		Device p20Lite = new Device();
+		p20Lite.setName("P20 Lite");
+		p20Lite.setBrand("Huawei");
+		p20Lite.setPrice(450.0);
+		p20Lite.setScreenSize(5.8);
+		p20Lite.setWeight(0.145);
+		p20Lite.setDeviceType(DeviceType.MOBILE);
+		p20Lite.setStorage(64);
+		p20Lite.setProcessor("Kirin 659");
+		p20Lite.setMemory(4);
+		p20Lite.setOS("Android");
+		p20Lite.setCamera("Principal 16 Mp");
+		Set<String> p20LiteColors = new HashSet<String>();
+		p20LiteColors.add("Blue"); p20LiteColors.add("White");
+		p20LiteColors.add("Black");
+		p20Lite.setSetColors(p20LiteColors);
+		addDevice(p20Lite);
+		
+			// Xiaomi Mi Band 6
+		Device miBand6 = new Device();
+		miBand6.setName("Mi Band 6");
+		miBand6.setBrand("Xiaomi");
+		miBand6.setPrice(45.5);
+		miBand6.setScreenSize(1.56);
+		miBand6.setWeight(0.128);
+		miBand6.setDeviceType(DeviceType.SMARTBAND);
+		miBand6.setStorage(1);
+		miBand6.setProcessor("-");
+		miBand6.setMemory(1);
+		miBand6.setOS("-");
+		miBand6.setCamera("-");
+		Set<String> miBand6Colors = new HashSet<>();
+		miBand6Colors.add("Black");
+		miBand6.setSetColors(miBand6Colors);
+		addDevice(miBand6);
+		
+			// iMac M1
+		Device iMacM1 = new Device();
+		iMacM1.setName("iMac");
+		iMacM1.setBrand("Apple");
+		iMacM1.setPrice(1449.);
+		iMacM1.setScreenSize(24.);
+		iMacM1.setWeight(4.46);
+		iMacM1.setDeviceType(DeviceType.COMPUTER);
+		iMacM1.setStorage(256);
+		iMacM1.setProcessor("Apple M1");
+		iMacM1.setMemory(8);
+		iMacM1.setOS("macOS");
+		iMacM1.setCamera("Front-facing: Facetime HD (1080p)");
+		Set<String> iMacM1Colors = new HashSet<String>();
+		iMacM1Colors.add("Blue"); iMacM1Colors.add("Green"); 
+		iMacM1Colors.add("Pink"); iMacM1Colors.add("Silver");
+		iMacM1.setSetColors(iMacM1Colors);
+		addDevice(iMacM1);
+		
+			// Asus Rog Strix G15
+		Device asusRog = new Device();
+		asusRog.setName("Rog Strix G15");
+		asusRog.setBrand("Asus");
+		asusRog.setPrice(1490.);
+		asusRog.setScreenSize(15.6);
+		asusRog.setWeight(2.5);
+		asusRog.setDeviceType(DeviceType.COMPUTER);
+		asusRog.setStorage(1000);
+		asusRog.setProcessor("Intel i7-10750H");
+		asusRog.setMemory(16);
+		asusRog.setOS("Windows");
+		asusRog.setCamera("-");
+		Set<String> asusRogColors = new HashSet<String>();
+		asusRogColors.add("Black"); asusRogColors.add("Grey");
+		asusRog.setSetColors(asusRogColors);
+		addDevice(asusRog);		
 		
 		// Create shops
 		Shop worten = new Shop();

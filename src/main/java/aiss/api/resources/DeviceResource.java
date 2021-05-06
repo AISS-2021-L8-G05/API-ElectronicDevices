@@ -65,27 +65,102 @@ public class DeviceResource {
 			@QueryParam("deviceType") String deviceType, @QueryParam("OS") String OS, @QueryParam("Color") String Color,
 			@QueryParam("offset") Integer offset, @QueryParam("limit") Integer limit){
 		
-		Set<Device> result = new HashSet<Device>();
+		Set<Device> aux = new HashSet<Device>(repository.getAllDevices());
 		
-		for(Device d : repository.getAllDevices()) {
-			if(brand != null && d.getBrand().equals(brand)) {
-				result.add(d);
-			}
+		List<Device> res = aux.stream().collect(Collectors.toList());
+		
+		for(int i = 0; i<res.size(); i++) {
+			Device d = res.get(i);
 			
-			if(deviceType != null && d.getDeviceType().toString().equals(deviceType)) {
-				result.add(d);
+			if (brand != null && res.contains(d) && !(d.getBrand().equals(brand))) {
+				res.remove(d);
+				i--;
 			}
-			
-			if(OS != null && d.getOS().equals(OS)) {
-				result.add(d);
+
+			if (deviceType != null && res.contains(d) && !(d.getDeviceType().toString().equals(deviceType))) {
+				res.remove(d);
+				i--;
 			}
-			
-			if(Color != null || d.getSetColors().contains(Color)) {
-				result.add(d);
+
+			if (OS != null && res.contains(d) && !(d.getOS().equals(OS))) {
+				res.remove(d);
+				i--;
 			}
+
+			if (Color != null && res.contains(d) && !(d.getSetColors().contains(Color))) {
+				res.remove(d);
+				i--;
+			}
+
 		}
 		
-		List<Device> res = result.stream().collect(Collectors.toList());
+//		Set<Device> result = new HashSet<Device>();
+		
+//		for(Device d : repository.getAllDevices()) {
+//			if(brand != null && d.getBrand().equals(brand)) {
+//				result.add(d);
+//			}
+//			
+//			if(deviceType != null && d.getDeviceType().toString().equals(deviceType)) {
+//				result.add(d);
+//			}
+//			
+//			if(OS != null && d.getOS().equals(OS)) {
+//				result.add(d);
+//			}
+//			
+//			if(Color != null && d.getSetColors().contains(Color)) {
+//				result.add(d);
+//			}
+//		}
+		
+//		Set<Device> resultOpcion2 = new HashSet<>(repository.getAllDevices());
+//		
+//		for(Device d : resultOpcion2) {
+//			
+//			if(brand != null && !(d.getBrand().equals(brand))) {
+//				resultOpcion2.remove(d);
+//			}
+//			
+//			if(deviceType != null && resultOpcion2.contains(d) && !(d.getDeviceType().toString().equals(deviceType))) {
+//				resultOpcion2.remove(d);
+//			}
+//			
+//			if(OS != null && resultOpcion2.contains(d) && !(d.getOS().equals(OS))) {
+//				resultOpcion2.remove(d);
+//			}
+//			
+//			if(Color != null && resultOpcion2.contains(d) && !(d.getSetColors().contains(Color))) {
+//				resultOpcion2.remove(d);
+//			}
+//			
+//		}
+		
+//		for(Device d : resultOpcion2) {
+//		
+	//		if(brand != null && !(d.getBrand().equals(brand))) {
+	//			resultOpcion2.remove(d);
+	//			break;
+	//		}
+	//		
+	//		if(deviceType != null && !(d.getDeviceType().toString().equals(deviceType))) {
+	//			resultOpcion2.remove(d);
+	//			break;
+	//		}
+	//		
+	//		if(OS != null && !(d.getOS().equals(OS))) {
+	//			resultOpcion2.remove(d);
+	//			break;
+	//		}
+	//		
+	//		if(Color != null && !(d.getSetColors().contains(Color))) {
+	//			resultOpcion2.remove(d);
+	//			break;
+	//		}
+//		
+//	}
+		
+//		List<Device> res = result.stream().collect(Collectors.toList());
 		
 		if(order != null) {
 			if(order.equals("name")) {
