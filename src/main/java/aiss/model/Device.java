@@ -6,16 +6,16 @@ public class Device {
 	private Integer id;
 	private String name;
 	private String brand;
-	private Double price;		// Euros
-	private Double screenSize;	// Inches
-	private Double weight;		// g
+	private Double price;			// Euros
+	private Double screenSize;		// Inches
+	private Double weight;			// kg
 	private DeviceType deviceType;
-	private Integer storage;
-	private String processor;
-	private Integer memory;
+	private Integer storage;		// GB
+	private String processor;		// Name and some info about processor
+	private Integer memory;			// GB
 	private String OS;		
 	private Set<String> setColors;
-	private String camera; 		// Mpx
+	private String camera; 			// Info about the camera
 	
 	public Device () {
 		

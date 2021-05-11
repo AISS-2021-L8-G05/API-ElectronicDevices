@@ -60,7 +60,7 @@ public class MapShopRepository implements ShopRepository{
 		galaxyS20FE.setStorage(128);
 		galaxyS20FE.setProcessor("Samsung Exynos 990");
 		galaxyS20FE.setMemory(6);
-		galaxyS20FE.setOS("One UI");
+		galaxyS20FE.setOS("Android");
 		galaxyS20FE.setCamera("Principal 12Mp");
 		Set<String> galaxyS20FEColors = new HashSet<String>();
 		galaxyS20FEColors.add("Cloud Navy"); galaxyS20FEColors.add("Cloud Red"); 
