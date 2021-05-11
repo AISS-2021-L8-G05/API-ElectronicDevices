@@ -72,12 +72,12 @@ public class DeviceResource {
 		for(int i = 0; i<res.size(); i++) {
 			Device d = res.get(i);
 			
-			if (brand != null && res.contains(d) && !(d.getBrand().equals(brand))) {
+			if (brand != null && res.contains(d) && !(d.getBrand().toLowerCase().equals(brand.toLowerCase()))) {
 				res.remove(d);
 				i--;
 			}
 
-			if (deviceType != null && res.contains(d) && !(d.getDeviceType().toString().equals(deviceType))) {
+			if (deviceType != null && res.contains(d) && !(d.getDeviceType().toString().toLowerCase().equals(deviceType.toLowerCase()))) {
 				res.remove(d);
 				i--;
 			}

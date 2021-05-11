@@ -16,14 +16,13 @@ public class Device {
 	private String OS;		
 	private Set<String> setColors;
 	private String camera; 		// Mpx
-	private Double rating;		// [0,10]
 	
 	public Device () {
 		
 	}
 
 	public Device(String name, String brand, Double price, Double screenSize, Double weight, DeviceType deviceType,
-			Integer storage, String processor, Integer memory, String OS, Set<String> setColors, String camera, Double rating) {
+			Integer storage, String processor, Integer memory, String OS, Set<String> setColors, String camera) {
 		super();
 		this.name = name;
 		this.brand = brand;
@@ -37,11 +36,6 @@ public class Device {
 		this.OS = OS;
 		this.setColors = setColors;
 		this.camera = camera;
-		if(rating>10. || rating<0.) {
-			throw new IllegalArgumentException("The rating must be between 0 and 10");
-		}else {
-			this.rating=rating;
-		}
 	}
 
 	public Device(Integer id, String name, String brand, Double price, Double screenSize, Double weight,
@@ -165,14 +159,6 @@ public class Device {
 
 	public void setCamera(String camera) {
 		this.camera = camera;
-	}
-
-	public Double getRating() {
-		return rating;
-	}
-
-	public void setRating(Double rating) {
-		this.rating = rating;
 	}
 		
 }
