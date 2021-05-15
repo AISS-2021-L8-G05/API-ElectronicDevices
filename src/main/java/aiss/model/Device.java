@@ -37,6 +37,23 @@ public class Device {
 		this.setColors = setColors;
 		this.camera = camera;
 	}
+	
+	public Device(String name, String brand, Double price, Double screenSize, Double weight, String deviceType,
+			Integer storage, String processor, Integer memory, String OS, Set<String> setColors, String camera) {
+		super();
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.screenSize = screenSize;
+		this.weight = weight;
+		this.deviceType = DeviceType.valueOf(deviceType.trim().toUpperCase());
+		this.storage = storage;
+		this.processor = processor;
+		this.memory = memory;
+		this.OS = OS;
+		this.setColors = setColors;
+		this.camera = camera;
+	}
 
 	public Device(Integer id, String name, String brand, Double price, Double screenSize, Double weight,
 			DeviceType deviceType, Integer storage, String processor, Integer memory, String OS, Set<String> setColors,
@@ -49,6 +66,25 @@ public class Device {
 		this.screenSize = screenSize;
 		this.weight = weight;
 		this.deviceType = deviceType;
+		this.storage = storage;
+		this.processor = processor;
+		this.memory = memory;
+		this.OS = OS;
+		this.setColors = setColors;
+		this.camera = camera;
+	}
+	
+	public Device(Integer id, String name, String brand, Double price, Double screenSize, Double weight,
+			String deviceType, Integer storage, String processor, Integer memory, String OS, Set<String> setColors,
+			String camera) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.screenSize = screenSize;
+		this.weight = weight;
+		this.deviceType = DeviceType.valueOf(deviceType.trim().toUpperCase());
 		this.storage = storage;
 		this.processor = processor;
 		this.memory = memory;
@@ -111,6 +147,10 @@ public class Device {
 
 	public void setDeviceType(DeviceType deviceType) {
 		this.deviceType = deviceType;
+	}
+	
+	public void setDeviceType(String deviceType) {
+		this.deviceType = DeviceType.valueOf(deviceType.trim().toUpperCase());
 	}
 
 	public Integer getStorage() {

@@ -107,7 +107,7 @@ public class ShopResource {
 
 		repository.addShop(shop);
 
-		// Builds the response. Returns the playlist the has just been added.
+		// Builds the response. Returns the shop the has just been added.
 		UriBuilder ub = uriInfo.getAbsolutePathBuilder().path(this.getClass(), "get");
 		URI uri = ub.build(shop.getId());
 		ResponseBuilder resp = Response.created(uri);
