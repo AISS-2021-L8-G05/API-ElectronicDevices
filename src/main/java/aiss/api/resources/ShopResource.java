@@ -58,7 +58,7 @@ public class ShopResource {
 		List<Shop> result = new ArrayList<Shop>();
 		
 		for(Shop shop : repository.getAllShops()) {
-			if(name == null || shop.getName().equals(name)) {	// Name filter
+			if(name == null || shop.getName().toLowerCase().equals(name.toLowerCase())) {	// Name filter
 				if(isEmpty == null	// Si el filtro no se usa, incluir todas las listas
 						|| (isEmpty && (shop.getDevices() == null || shop.getDevices().size() == 0))	// Si el filtro se pone a true, incluir las listas que no tengan canciones
 						|| (!isEmpty && (shop.getDevices() != null && shop.getDevices().size() > 0))) {	// Si el filtro se pone a false, incluir las listas que tengan canciones
