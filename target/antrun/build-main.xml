@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="maven-antrun-" default="main">
   <target name="main">
-    <property name="target.webapp.dir" value="C:\Users\vicen\OneDrive\UNIVERSIDAD\SEGUNDO\Segundo Cuatrimestre\AISS\Workspace-AIIS(windows)\API-ElectronicDevices\target/API-1.0-SNAPSHOT" />
-    <property name="src.webapp.dir" value="C:\Users\vicen\OneDrive\UNIVERSIDAD\SEGUNDO\Segundo Cuatrimestre\AISS\Workspace-AIIS(windows)\API-ElectronicDevices/src/main/webapp" />
+    <property name="target.webapp.dir" value="/Users/vicente/OneDrive/UNIVERSIDAD/SEGUNDO/Segundo Cuatrimestre/AISS/Workspace-AISS/API-ElectronicDevices/target/API-1.0-SNAPSHOT" />
+    <property name="src.webapp.dir" value="/Users/vicente/OneDrive/UNIVERSIDAD/SEGUNDO/Segundo Cuatrimestre/AISS/Workspace-AISS/API-ElectronicDevices/src/main/webapp" />
     <sync todir="${target.webapp.dir}" includeEmptyDirs="true" verbose="true">
       <fileset dir="${src.webapp.dir}" />
       <preserveintarget>

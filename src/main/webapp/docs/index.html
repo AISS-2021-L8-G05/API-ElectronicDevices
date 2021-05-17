@@ -1,42 +1,67 @@
 <!-- HTML for static distribution bundle build -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Swagger UI</title>
-    <link rel="stylesheet" type="text/css" href="./swagger-ui.css" />
-    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
-    <style>
-      html
-      {
-        box-sizing: border-box;
-        overflow: -moz-scrollbars-vertical;
-        overflow-y: scroll;
-      }
 
-      *,
-      *:before,
-      *:after
-      {
-        box-sizing: inherit;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Swagger UI</title>
+  <link rel="stylesheet" type="text/css" href="./swagger-ui.css" />
+  <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="../cssStyle.css">
+  <link rel="icon" href="../iconApi.png">
+  <style>
+    html {
+      box-sizing: border-box;
+      overflow: -moz-scrollbars-vertical;
+      overflow-y: scroll;
+    }
 
-      body
-      {
-        margin:0;
-        background: #fafafa;
-      }
-    </style>
-  </head>
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
 
-  <body>
-    <div id="swagger-ui"></div>
+    body {
+      margin: 0;
+      background: #fafafa;
+    }
+  </style>
+</head>
 
-    <script src="./swagger-ui-bundle.js" charset="UTF-8"> </script>
-    <script src="./swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
-    <script>
-    window.onload = function() {
+<body>
+
+  <div class="titulo d-flex flex-row justify-content-center align-items-center text-center">
+    <div><img class="logo" src="../iconAPI.png" alt=""></div>
+    <div class="textoColor fs-1">Electronic Devices</div>
+  </div>
+  <nav class="container-fluid">
+    <div class="row mb-5 justify-content-md-center">
+      <a href="../index.html"
+        class="text-decoration-none navSection col text-center d-flex justify-content-center align-items-center">
+        <div class="textoNegro text-center fs-2">Inicio</div>
+      </a>
+      <a href="https://api-electronicdevices-313314.nw.r.appspot.com/docs/index.html"
+        class="text-decoration-none navSection col text-center d-flex justify-content-center align-items-center">
+        <div class="textoNegro text-center fs-2">Swagger UI</div>
+      </a>
+      <a href="../developers.html"
+        class="text-decoration-none navSection col text-center d-flex justify-content-center align-items-center">
+        <div class="textoNegro text-center fs-2">Desarrolladores</div>
+      </a>
+    </div>
+  </nav>
+
+  <div id="swagger-ui"></div>
+
+  <script src="./swagger-ui-bundle.js" charset="UTF-8"> </script>
+  <script src="./swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
+  <script>
+    window.onload = function () {
       // Begin Swagger UI call region
       const ui = SwaggerUIBundle({
         //url: "http://localhost:8089/docs/swagger.yaml",
@@ -57,5 +82,6 @@
       window.ui = ui;
     };
   </script>
-  </body>
+</body>
+
 </html>
