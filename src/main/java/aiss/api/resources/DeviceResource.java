@@ -82,7 +82,7 @@ public class DeviceResource {
 				i--;
 			}
 
-			if (OS != null && res.contains(d) && !(d.getOS().equals(OS))) {
+			if (OS != null && res.contains(d) && !(d.getOS().toLowerCase().contains(OS.toLowerCase()))) {
 				res.remove(d);
 				i--;
 			}
@@ -227,7 +227,7 @@ public class DeviceResource {
 		
 		// Update deviceType
 		if(device.getDeviceType() != null) {
-			oldDevice.setDeviceType(device.getDeviceType());
+			oldDevice.setDeviceType(device.getDeviceType().toString());
 		}
 		
 		// Update storage

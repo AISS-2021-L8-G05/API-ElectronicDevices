@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Set;
 
 import aiss.model.Device;
-import aiss.model.DeviceType;
 import aiss.model.Shop;
 
 public class MapShopRepository implements ShopRepository {
@@ -38,7 +37,7 @@ public class MapShopRepository implements ShopRepository {
 		macBookPro16.setPrice(3100.0);
 		macBookPro16.setScreenSize(16.0);
 		macBookPro16.setWeight(2.0);
-		macBookPro16.setDeviceType(DeviceType.COMPUTER);
+		macBookPro16.setDeviceType("computer");
 		macBookPro16.setStorage(1000);
 		macBookPro16.setProcessor("Intel i9-8core (9th gen)");
 		macBookPro16.setMemory(16);
@@ -57,7 +56,7 @@ public class MapShopRepository implements ShopRepository {
 		galaxyS20FE.setPrice(649.);
 		galaxyS20FE.setScreenSize(6.5);
 		galaxyS20FE.setWeight(0.19);
-		galaxyS20FE.setDeviceType(DeviceType.MOBILE);
+		galaxyS20FE.setDeviceType("mobile");
 		galaxyS20FE.setStorage(128);
 		galaxyS20FE.setProcessor("Samsung Exynos 990");
 		galaxyS20FE.setMemory(6);
@@ -78,7 +77,7 @@ public class MapShopRepository implements ShopRepository {
 		miTv4s.setPrice(449.);
 		miTv4s.setScreenSize(55.);
 		miTv4s.setWeight(12.45);
-		miTv4s.setDeviceType(DeviceType.SMART_TV);
+		miTv4s.setDeviceType("SMART_TV");
 		miTv4s.setStorage(8);
 		miTv4s.setProcessor("MediaTek MSD6886");
 		miTv4s.setMemory(2);
@@ -96,7 +95,7 @@ public class MapShopRepository implements ShopRepository {
 		p20Lite.setPrice(450.0);
 		p20Lite.setScreenSize(5.8);
 		p20Lite.setWeight(0.145);
-		p20Lite.setDeviceType(DeviceType.MOBILE);
+		p20Lite.setDeviceType("MOBILE");
 		p20Lite.setStorage(64);
 		p20Lite.setProcessor("Kirin 659");
 		p20Lite.setMemory(4);
@@ -116,7 +115,7 @@ public class MapShopRepository implements ShopRepository {
 		miBand6.setPrice(45.5);
 		miBand6.setScreenSize(1.56);
 		miBand6.setWeight(0.128);
-		miBand6.setDeviceType(DeviceType.SMARTBAND);
+		miBand6.setDeviceType("SMARTBAND");
 		miBand6.setStorage(1);
 		miBand6.setProcessor("-");
 		miBand6.setMemory(1);
@@ -134,7 +133,7 @@ public class MapShopRepository implements ShopRepository {
 		iMacM1.setPrice(1449.);
 		iMacM1.setScreenSize(24.);
 		iMacM1.setWeight(4.46);
-		iMacM1.setDeviceType(DeviceType.COMPUTER);
+		iMacM1.setDeviceType("COMPUTER");
 		iMacM1.setStorage(256);
 		iMacM1.setProcessor("Apple M1");
 		iMacM1.setMemory(8);
@@ -155,7 +154,7 @@ public class MapShopRepository implements ShopRepository {
 		asusRog.setPrice(1490.);
 		asusRog.setScreenSize(15.6);
 		asusRog.setWeight(2.5);
-		asusRog.setDeviceType(DeviceType.COMPUTER);
+		asusRog.setDeviceType("COMPUTER");
 		asusRog.setStorage(1000);
 		asusRog.setProcessor("Intel i7-10750H");
 		asusRog.setMemory(16);
@@ -174,7 +173,7 @@ public class MapShopRepository implements ShopRepository {
 		iPadProM1.setPrice(879.);
 		iPadProM1.setScreenSize(11.);
 		iPadProM1.setWeight(0.468);
-		iPadProM1.setDeviceType(DeviceType.TABLET);
+		iPadProM1.setDeviceType("tablet");
 		iPadProM1.setStorage(128);
 		iPadProM1.setProcessor("Apple M1");
 		iPadProM1.setMemory(8);
@@ -193,7 +192,7 @@ public class MapShopRepository implements ShopRepository {
 		iPadAir.setPrice(649.);
 		iPadAir.setScreenSize(10.9);
 		iPadAir.setWeight(0.458);
-		iPadAir.setDeviceType(DeviceType.TABLET);
+		iPadAir.setDeviceType("tablet");
 		iPadAir.setStorage(64);
 		iPadAir.setProcessor("Apple A14 Bionic");
 		iPadAir.setMemory(4);
@@ -201,7 +200,7 @@ public class MapShopRepository implements ShopRepository {
 		iPadAir.setCamera("Main: 7 Mpx");
 		Set<String> iPadAirColors = new HashSet<String>();
 		iPadAirColors.add("Silver");
-		iPadAirColors.add("Space Gra");
+		iPadAirColors.add("Space grey");
 		iPadAirColors.add("Rose Gold");
 		iPadAirColors.add("Green");
 		iPadAirColors.add("Sky Blue");
@@ -215,7 +214,7 @@ public class MapShopRepository implements ShopRepository {
 		xiaomi11i.setPrice(699.0);
 		xiaomi11i.setScreenSize(6.67);
 		xiaomi11i.setWeight(0.2);
-		xiaomi11i.setDeviceType(DeviceType.MOBILE);
+		xiaomi11i.setDeviceType("mobile");
 		xiaomi11i.setStorage(256);
 		xiaomi11i.setProcessor("Qualcomm Snapdragon 888");
 		xiaomi11i.setMemory(8);
@@ -233,7 +232,7 @@ public class MapShopRepository implements ShopRepository {
 		samsungGalaxyA20s.setPrice(129.0);
 		samsungGalaxyA20s.setScreenSize(6.5);
 		samsungGalaxyA20s.setWeight(0.22);
-		samsungGalaxyA20s.setDeviceType(DeviceType.MOBILE);
+		samsungGalaxyA20s.setDeviceType("mobile");
 		samsungGalaxyA20s.setStorage(32);
 		samsungGalaxyA20s.setProcessor("Qualcomm Snapdragon 450");
 		samsungGalaxyA20s.setMemory(3);
@@ -251,7 +250,7 @@ public class MapShopRepository implements ShopRepository {
 		iphone12ProMax.setPrice(1238.0);
 		iphone12ProMax.setScreenSize(6.7);
 		iphone12ProMax.setWeight(0.19);
-		iphone12ProMax.setDeviceType(DeviceType.MOBILE);
+		iphone12ProMax.setDeviceType("mobile");
 		iphone12ProMax.setStorage(128);
 		iphone12ProMax.setProcessor("Apple A14 Bionic");
 		iphone12ProMax.setMemory(6);
@@ -269,7 +268,7 @@ public class MapShopRepository implements ShopRepository {
 		huaweiMatePad.setPrice(279.);
 		huaweiMatePad.setScreenSize(10.4);
 		huaweiMatePad.setWeight(0.45);
-		huaweiMatePad.setDeviceType(DeviceType.TABLET);
+		huaweiMatePad.setDeviceType("tablet");
 		huaweiMatePad.setStorage(32);
 		huaweiMatePad.setProcessor("Huawei Kirin 810");
 		huaweiMatePad.setMemory(3);
@@ -287,7 +286,7 @@ public class MapShopRepository implements ShopRepository {
 		huaweiMate40Pro.setPrice(1400.0);
 		huaweiMate40Pro.setScreenSize(6.7);
 		huaweiMate40Pro.setWeight(0.16);
-		huaweiMate40Pro.setDeviceType(DeviceType.MOBILE);
+		huaweiMate40Pro.setDeviceType("mobile");
 		huaweiMate40Pro.setStorage(256);
 		huaweiMate40Pro.setProcessor("Main: 50MP");
 		huaweiMate40Pro.setMemory(12);
@@ -306,7 +305,7 @@ public class MapShopRepository implements ShopRepository {
 		macBookAir.setPrice(1129.0);
 		macBookAir.setScreenSize(13.3);
 		macBookAir.setWeight(1.29);
-		macBookAir.setDeviceType(DeviceType.COMPUTER);
+		macBookAir.setDeviceType("computer");
 		macBookAir.setStorage(256);
 		macBookAir.setProcessor("Apple M1");
 		macBookAir.setMemory(8);
@@ -326,7 +325,7 @@ public class MapShopRepository implements ShopRepository {
 		surfaceBook3.setPrice(2599.0);
 		surfaceBook3.setScreenSize(15.0);
 		surfaceBook3.setWeight(1.905);
-		surfaceBook3.setDeviceType(DeviceType.COMPUTER);
+		surfaceBook3.setDeviceType("computer");
 		surfaceBook3.setStorage(256);
 		surfaceBook3.setProcessor("Intel i7-4core (10th gen)");
 		surfaceBook3.setMemory(16);
@@ -344,7 +343,7 @@ public class MapShopRepository implements ShopRepository {
 		mateBookXPro.setPrice(1899.0);
 		mateBookXPro.setScreenSize(13.9);
 		mateBookXPro.setWeight(1.33);
-		mateBookXPro.setDeviceType(DeviceType.COMPUTER);
+		mateBookXPro.setDeviceType("computer");
 		mateBookXPro.setStorage(1000);
 		mateBookXPro.setProcessor("Intel i7-4core (11th gen)");
 		mateBookXPro.setMemory(16);
@@ -363,7 +362,7 @@ public class MapShopRepository implements ShopRepository {
 		crystalUHD85.setPrice(1999.);
 		crystalUHD85.setScreenSize(85.);
 		crystalUHD85.setWeight(41.5);
-		crystalUHD85.setDeviceType(DeviceType.SMART_TV);
+		crystalUHD85.setDeviceType("SMART_TV");
 		crystalUHD85.setStorage(8);
 		crystalUHD85.setProcessor("Samsung Crystal UHD");
 		crystalUHD85.setMemory(4);
@@ -381,7 +380,7 @@ public class MapShopRepository implements ShopRepository {
 		thinkPadX1Carbon.setPrice(1829.0);
 		thinkPadX1Carbon.setScreenSize(14.0);
 		thinkPadX1Carbon.setWeight(1.13);
-		thinkPadX1Carbon.setDeviceType(DeviceType.COMPUTER);
+		thinkPadX1Carbon.setDeviceType("computer");
 		thinkPadX1Carbon.setStorage(256);
 		thinkPadX1Carbon.setProcessor("Intel i5-4core (11th gen)");
 		thinkPadX1Carbon.setMemory(8);
@@ -399,7 +398,7 @@ public class MapShopRepository implements ShopRepository {
 		appleWatchSeries6.setPrice(429.0);
 		appleWatchSeries6.setScreenSize(1.5);
 		appleWatchSeries6.setWeight(0.0471);
-		appleWatchSeries6.setDeviceType(DeviceType.SMARTWATCH);
+		appleWatchSeries6.setDeviceType("smartwatch");
 		appleWatchSeries6.setStorage(32);
 		appleWatchSeries6.setProcessor("Apple S6");
 		appleWatchSeries6.setMemory(1);
@@ -416,12 +415,12 @@ public class MapShopRepository implements ShopRepository {
 
 		// appleWatchSE
 		Device appleWatchSE = new Device();
-		appleWatchSE.setName("Apple Watch Series 6");
+		appleWatchSE.setName("Apple Watch SE");
 		appleWatchSE.setBrand("Apple");
 		appleWatchSE.setPrice(299.0);
 		appleWatchSE.setScreenSize(1.5);
 		appleWatchSE.setWeight(0.0471);
-		appleWatchSE.setDeviceType(DeviceType.SMARTWATCH);
+		appleWatchSE.setDeviceType("SMARTWATCH");
 		appleWatchSE.setStorage(32);
 		appleWatchSE.setProcessor("Apple S5");
 		appleWatchSE.setMemory(1);
@@ -441,7 +440,7 @@ public class MapShopRepository implements ShopRepository {
 		galaxyWatch3.setPrice(349.0);
 		galaxyWatch3.setScreenSize(1.4);
 		galaxyWatch3.setWeight(0.0538);
-		galaxyWatch3.setDeviceType(DeviceType.SMARTWATCH);
+		galaxyWatch3.setDeviceType("SMARTWATCH");
 		galaxyWatch3.setStorage(8);
 		galaxyWatch3.setProcessor("Samsung Exynos");
 		galaxyWatch3.setMemory(1);
@@ -461,7 +460,7 @@ public class MapShopRepository implements ShopRepository {
 		galaxyWatchActive2.setPrice(209.0);
 		galaxyWatchActive2.setScreenSize(1.2);
 		galaxyWatchActive2.setWeight(0.026);
-		galaxyWatchActive2.setDeviceType(DeviceType.SMARTWATCH);
+		galaxyWatchActive2.setDeviceType("SMARTWATCH");
 		galaxyWatchActive2.setStorage(4);
 		galaxyWatchActive2.setProcessor("Samsung Exynos");
 		galaxyWatchActive2.setMemory(1);
@@ -481,7 +480,7 @@ public class MapShopRepository implements ShopRepository {
 		miBand5.setPrice(35.);
 		miBand5.setScreenSize(1.1);
 		miBand5.setWeight(0.119);
-		miBand5.setDeviceType(DeviceType.SMARTBAND);
+		miBand5.setDeviceType("smartband");
 		miBand5.setStorage(1);
 		miBand5.setProcessor("-");
 		miBand5.setMemory(1);
@@ -499,7 +498,7 @@ public class MapShopRepository implements ShopRepository {
 		galaxyFit2.setPrice(34.90);
 		galaxyFit2.setScreenSize(1.1);
 		galaxyFit2.setWeight(0.021);
-		galaxyFit2.setDeviceType(DeviceType.SMARTBAND);
+		galaxyFit2.setDeviceType("smartband");
 		galaxyFit2.setStorage(1);
 		galaxyFit2.setProcessor("-");
 		galaxyFit2.setMemory(1);
@@ -609,7 +608,7 @@ public class MapShopRepository implements ShopRepository {
 		device.setPrice(d.getPrice());
 		device.setScreenSize(d.getScreenSize());
 		device.setWeight(d.getWeight());
-		device.setDeviceType(d.getDeviceType());
+		device.setDeviceType(d.getDeviceType().toString());
 		device.setStorage(d.getStorage());
 		device.setProcessor(d.getProcessor());
 		device.setMemory(d.getMemory());

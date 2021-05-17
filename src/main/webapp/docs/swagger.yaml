@@ -1,9 +1,10 @@
 openapi: 3.0.0
 servers: 
   - url: 'https://api-electronicdevices-313314.nw.r.appspot.com/api/v1/'
+  - url: 'http://localhost:8089/api/v1/'
 info:
   description: This API can be used to consult multiple electronic devices which could be found in different shops.
-  version: "1.0.0"
+  version: 2.0.0
   title: API-ElectronicDevices
   contact:
     email: joselugarciamarin2406@gmail.com
@@ -55,6 +56,12 @@ paths:
           required: false
           schema:
             type: string
+        - name: Color
+          in: query
+          description: Query to filter by color
+          required: false
+          schema:
+            type: string
         - name: OS
           in: query
           description: Query to filter by OS
@@ -96,7 +103,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Device'
+              $ref: '#/components/schemas/DeviceEmpty'
         description: Device to create
         required: true
       responses:
@@ -392,6 +399,55 @@ components:
         processor: Samsung Exynos 990
         memory: 6
         setColors: [Cloud Orange, Cloud Red, Cloud white, Cloud Navy]
+        camera: "Principal 12Mp"
+        os: Android
+    DeviceEmpty:
+      type: array
+      items:
+        type: object
+        required: 
+          - name
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+          brand:
+            type: string
+          price: 
+            type: number
+          screenSize:
+            type: number
+          weight:
+            type: number
+          deviceType:
+            type: string
+          storage:
+            type: integer
+          processor:
+            type: string
+          memory:
+            type: integer
+          setColors:
+            type: array
+            items:
+              type: string
+          OS:
+            type: string
+          camera:
+            type: string
+      example:
+        id: 1
+        name: Galaxy s20 FE
+        brand: Samsung
+        price: 649.0
+        screenSize: 6.5
+        weight: 0.19
+        deviceType: MOBILE
+        storage: 128
+        processor: Samsung Exynos 990
+        setColors: null
+        memory: 6
         camera: "Principal 12Mp"
         os: Android
     Shop: 

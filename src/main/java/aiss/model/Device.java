@@ -92,6 +92,77 @@ public class Device {
 		this.setColors = setColors;
 		this.camera = camera;
 	}
+	
+	public Device(String name, String brand, Double price, Double screenSize, Double weight, DeviceType deviceType,
+			Integer storage, String processor, Integer memory, String OS, String camera) {
+		super();
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.screenSize = screenSize;
+		this.weight = weight;
+		this.deviceType = deviceType;
+		this.storage = storage;
+		this.processor = processor;
+		this.memory = memory;
+		this.OS = OS;
+
+		this.camera = camera;
+	}
+	
+	public Device(String name, String brand, Double price, Double screenSize, Double weight, String deviceType,
+			Integer storage, String processor, Integer memory, String OS, String camera) {
+		super();
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.screenSize = screenSize;
+		this.weight = weight;
+		this.deviceType = DeviceType.valueOf(deviceType.trim().toUpperCase());
+		this.storage = storage;
+		this.processor = processor;
+		this.memory = memory;
+		this.OS = OS;
+		this.camera = camera;
+	}
+
+	public Device(Integer id, String name, String brand, Double price, Double screenSize, Double weight,
+			DeviceType deviceType, Integer storage, String processor, Integer memory, String OS,
+			String camera) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.screenSize = screenSize;
+		this.weight = weight;
+		this.deviceType = deviceType;
+		this.storage = storage;
+		this.processor = processor;
+		this.memory = memory;
+		this.OS = OS;
+		this.camera = camera;
+	}
+	
+	public Device(Integer id, String name, String brand, Double price, Double screenSize, Double weight,
+			String deviceType, Integer storage, String processor, Integer memory, String OS,
+			String camera) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.screenSize = screenSize;
+		this.weight = weight;
+		this.deviceType = DeviceType.valueOf(deviceType.trim().toUpperCase());
+		this.storage = storage;
+		this.processor = processor;
+		this.memory = memory;
+		this.OS = OS;
+		this.camera = camera;
+	}
+	
+	//
 
 	public Integer getId() {
 		return id;
@@ -145,9 +216,9 @@ public class Device {
 		return deviceType;
 	}
 
-	public void setDeviceType(DeviceType deviceType) {
-		this.deviceType = deviceType;
-	}
+//	public void setDeviceType(DeviceType deviceType) {
+//		this.deviceType = deviceType;
+//	}
 	
 	public void setDeviceType(String deviceType) {
 		this.deviceType = DeviceType.valueOf(deviceType.trim().toUpperCase());
