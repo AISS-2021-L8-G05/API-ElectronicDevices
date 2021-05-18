@@ -5,6 +5,8 @@ import java.util.Set;
 
 import javax.ws.rs.core.Application;
 
+import aiss.api.resources.AccessoryResource;
+import aiss.api.resources.ComplementResource;
 import aiss.api.resources.DeviceResource;
 import aiss.api.resources.ShopResource;
 
@@ -18,6 +20,8 @@ public class ShopApplication extends Application{
 
 		singletons.add(ShopResource.getInstance());
 		singletons.add(DeviceResource.getInstance());
+		singletons.add(ComplementResource.getInstance());
+		singletons.add(AccessoryResource.getInstance());
 	}
 
 	@Override

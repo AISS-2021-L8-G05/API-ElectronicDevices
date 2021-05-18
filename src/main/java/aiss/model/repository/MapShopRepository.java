@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import aiss.model.Accessory;
+import aiss.model.Complement;
 import aiss.model.Device;
 import aiss.model.Shop;
 
@@ -13,7 +15,9 @@ public class MapShopRepository implements ShopRepository {
 
 	Map<Integer, Shop> shopMap;
 	Map<Integer, Device> deviceMap;
-	private static MapShopRepository instance = null;
+	Map<Integer, Accessory> accessoryMap;
+	Map<Integer, Complement> complementMap;
+ 	private static MapShopRepository instance = null;
 	private int index = 0; // Index to create shops and devices identifiers.
 
 	public static MapShopRepository getInstance() {
@@ -27,6 +31,8 @@ public class MapShopRepository implements ShopRepository {
 	public void init() {
 		shopMap = new HashMap<Integer, Shop>();
 		deviceMap = new HashMap<Integer, Device>();
+		accessoryMap = new HashMap<Integer, Accessory>();
+		complementMap = new HashMap<Integer, Complement>();
 
 		// Create devices
 
@@ -508,7 +514,18 @@ public class MapShopRepository implements ShopRepository {
 		galaxyFit2Colors.add("Black");
 		galaxyFit2.setSetColors(galaxyFit2Colors);
 		addDevice(galaxyFit2);
-
+		
+		// Create complement
+		Complement siliconCase = new Complement();
+		siliconCase.setName("Silicon Case Iphone 12 Pro Max");
+		siliconCase.setPrice(50.);
+		siliconCase.setMaterial("silicon");
+		Set<Device> siliconCaseCompatibleDevice = new HashSet<>();
+		siliconCaseCompatibleDevice.add(iphone12ProMax);
+		siliconCase.addCompatibleDevies(siliconCaseCompatibleDevice);
+		addComplement(siliconCase);
+		
+		
 		// Create shops
 
 		// Worten
@@ -665,6 +682,87 @@ public class MapShopRepository implements ShopRepository {
 	@Override
 	public void removeDevice(Integer shopId, Integer deviceId) {
 		getShop(shopId).deleteDevice(deviceId);
+	}
+	
+	// Accessory
+
+	@Override
+	public void addAccessory(Accessory a) {
+		Integer id = index++;
+		a.setAccessoryId(id);
+		accessoryMap.put(id, a);		
+	}
+
+	@Override
+	public Collection<Accessory> getAllAccessory() {
+		return accessoryMap.values();
+	}
+
+	@Override
+	public Accessory getAccessory(Integer accessoryId) {
+		return accessoryMap.get(accessoryId);
+	}
+
+	@Override
+	public void updateAccessory(Accessory a) {
+		accessoryMap.put(a.getAccessoryId(), a);
+	}
+
+	@Override
+	public void deleteAccessory(Integer accessoryId) {
+		accessoryMap.remove(accessoryId);
+		
+	}
+
+	@Override
+	public void addDeviceAccessory(Integer accessoryId, Integer deviceId) {
+		accessoryMap.get(accessoryId).getCompatibleDevices().add(deviceMap.get(deviceId));
+		
+	}
+
+	@Override
+	public void removeDeviceAccessory(Integer accessoryId, Integer deviceId) {
+		accessoryMap.get(accessoryId).getCompatibleDevices().remove(deviceMap.get(deviceId));
+		
+	}
+
+	// Complement
+	
+	@Override
+	public void addComplement(Complement c) {
+		Integer id = index++;
+		c.setComplementId(id);
+		complementMap.put(id, c);
+	}
+
+	@Override
+	public Collection<Complement> getAllComplement() {
+		return complementMap.values();
+	}
+
+	@Override
+	public Complement getComplement(Integer completentId) {
+		return complementMap.get(completentId);
+	}
+
+	@Override
+	public void updateComplement(Complement c) {
+		complementMap.put(c.getComplementId(), c);
+	}
+
+	@Override
+	public void deleteComplement(Integer complementId) {
+		complementMap.remove(complementId);
+	}
+
+	@Override
+	public void addDeviceComplement(Integer complementId, Integer deviceId) {
+		complementMap.get(complementId).getCompatibleDevices().add(deviceMap.get(deviceId));
+	}
+
+	@Override
+	public void removeDeviceComplement(Integer complementId, Integer deviceId) {
+		complementMap.get(complementId).getCompatibleDevices().remove(deviceMap.get(deviceId));
 	}
 
 }

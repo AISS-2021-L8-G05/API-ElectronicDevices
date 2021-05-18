@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.navSection {
+    color: black;
+    background-color: #cff4fc;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.navSection:hover {
+    opacity: 0.7;
+}
+
+
+.textoNegro {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.textoColor {
+    color: rgb(151, 232, 238);
+}
+
+
+.logo {
+    width: 100px;
+    height: auto;
+    margin-right: 12px;
+    margin-top: 1px;
+}
