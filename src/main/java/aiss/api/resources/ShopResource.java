@@ -155,7 +155,7 @@ public class ShopResource {
 	@Path("/{shopId}/{deviceId}")
 	@Consumes("text/plain")
 	@Produces("application/json")
-	public Response addSong(@Context UriInfo uriInfo,@PathParam("shopId") String shopId, @PathParam("deviceId") String deviceId)
+	public Response addDevice(@Context UriInfo uriInfo,@PathParam("shopId") String shopId, @PathParam("deviceId") String deviceId)
 	{				
 		
 		Shop shop = repository.getShop(Integer.valueOf(shopId));
@@ -183,7 +183,7 @@ public class ShopResource {
 	
 	@DELETE
 	@Path("/{shopId}/{deviceId}")
-	public Response removeSong(@PathParam("shopId") String shopId, @PathParam("deviceId") String deviceId) {
+	public Response removeDevice(@PathParam("shopId") String shopId, @PathParam("deviceId") String deviceId) {
 		Shop shop = repository.getShop(Integer.valueOf(shopId));
 		Device device = repository.getDevice(Integer.valueOf(deviceId));
 		

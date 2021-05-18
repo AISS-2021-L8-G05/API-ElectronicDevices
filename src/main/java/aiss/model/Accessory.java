@@ -1,6 +1,7 @@
 package aiss.model;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Accessory {
 	
@@ -8,31 +9,35 @@ public class Accessory {
 	private String name;
 	private Boolean wireless;		
 	private Double price;						// Euros
-	private List<Device> compatibleDevices;		// List of compatible devices with this complement
+	private Set<Device> compatibleDevices;		// Set of compatible devices with this complement
 	
-	public Accessory(String name, Boolean wireless, Double price, List<Device> compatibleDevices) {
+	public Accessory(String name, Boolean wireless, Double price, Set<Device> compatibleDevices) {
 		super();
 		this.name = name;
 		this.wireless = wireless;
 		this.price = price;
-		this.compatibleDevices = compatibleDevices;
+		this.compatibleDevices = new HashSet<>(compatibleDevices);
 	}
 
-	public Accessory(Integer accessoryId, String name, Boolean wireless, Double price, List<Device> compatibleDevices) {
+	public Accessory(Integer accessoryId, String name, Boolean wireless, Double price, Set<Device> compatibleDevices) {
 		super();
 		this.accessoryId = accessoryId;
 		this.name = name;
 		this.wireless = wireless;
 		this.price = price;
-		this.compatibleDevices = compatibleDevices;
+		this.compatibleDevices = new HashSet<>(compatibleDevices);
+	}				
+
+	public Accessory() {
+		super();
 	}
 
-	public List<Device> getCompatibleDevices() {
+	public Set<Device> getCompatibleDevices() {
 		return compatibleDevices;
 	}
 
-	public void setCompatibleDevices(List<Device> compatibleDevices) {
-		this.compatibleDevices = compatibleDevices;
+	public void setCompatibleDevices(Set<Device> compatibleDevices) {
+		this.compatibleDevices = new HashSet<Device>(compatibleDevices);
 	}
 
 	public Integer getAccessoryId() {

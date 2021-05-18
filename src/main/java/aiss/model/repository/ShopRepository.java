@@ -40,8 +40,8 @@ public interface ShopRepository {
 	public Collection<Complement> getAllComplement();
 	public Complement getComplement(Integer completentId);
 	public void updateComplement(Complement c);
-	public void deleteComplement(Complement c);
-	public void addDeviceComplement(Integer accessoryId, Integer deviceId);
-	public void removeDeviceComplement(Integer accessoryId, Integer deviceId);
+	public void deleteComplement(Integer complementId);
+	public void addDeviceComplement(Integer complementId, Integer deviceId);
+	public void removeDeviceComplement(Integer complementId, Integer deviceId);
 	
 }

@@ -1,6 +1,7 @@
 package aiss.model;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Complement {
 	
@@ -8,32 +9,36 @@ public class Complement {
 	private String name;
 	private String material;				// Ej: crystal, plastic, fur ... 
 	private Double price; 					// Euros
-	private List<Device> compatibleDevices;	// List of compatible devices with this complement
+	private Set<Device> compatibleDevices;	// Set of compatible devices with this complement
 	
-	public Complement(String name, String material, Double price, List<Device> compatibleDevices) {
+	public Complement(String name, String material, Double price, Set<Device> compatibleDevices) {
 		super();
 		this.name = name;
 		this.material = material;
 		this.price = price;
-		this.compatibleDevices = compatibleDevices;
+		this.compatibleDevices = new HashSet<Device>(compatibleDevices);
 	}
 
 	public Complement(Integer complementId, String name, String material, Double price,
-			List<Device> compatibleDevices) {
+			Set<Device> compatibleDevices) {
 		super();
 		this.complementId = complementId;
 		this.name = name;
 		this.material = material;
 		this.price = price;
-		this.compatibleDevices = compatibleDevices;
+		this.compatibleDevices = new HashSet<Device>(compatibleDevices);
 	}
 
-	public List<Device> getCompatibleDevices() {
+	public Complement() {
+		super();
+	}
+
+	public Set<Device> getCompatibleDevices() {
 		return compatibleDevices;
 	}
 
-	public void setCompatibleDevices(List<Device> compatibleDevices) {
-		this.compatibleDevices = compatibleDevices;
+	public void setCompatibleDevices(Set<Device> compatibleDevices) {
+		this.compatibleDevices = new HashSet<Device>(compatibleDevices);
 	}
 
 	public Integer getComplementId() {
@@ -66,6 +71,10 @@ public class Complement {
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+	
+	public void addCompatibleDevies(Set<Device> s) {
+		this.compatibleDevices = s;
 	}
 		
 }
