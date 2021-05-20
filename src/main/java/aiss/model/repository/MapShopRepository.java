@@ -519,11 +519,25 @@ public class MapShopRepository implements ShopRepository {
 		Complement siliconCase = new Complement();
 		siliconCase.setName("Silicon Case Iphone 12 Pro Max");
 		siliconCase.setPrice(50.);
-		siliconCase.setMaterial("silicon");
-		Set<Device> siliconCaseCompatibleDevice = new HashSet<>();
-		siliconCaseCompatibleDevice.add(iphone12ProMax);
-		siliconCase.addCompatibleDevies(siliconCaseCompatibleDevice);
+		siliconCase.setMaterial("Silicon");
+		siliconCase.addCompatibleDevices(iphone12ProMax);
 		addComplement(siliconCase);
+		
+		Complement bumperS20FE = new Complement();
+		bumperS20FE.setName("Bumper Galaxy S20 FE");
+		bumperS20FE.setPrice(20.);
+		bumperS20FE.setMaterial("Plastic");
+		bumperS20FE.addCompatibleDevices(galaxyS20FE);
+		addComplement(bumperS20FE);
+		
+		// Create accessory
+		Accessory logitecMouse = new Accessory();
+		logitecMouse.setName("Logitec MX Master 3");
+		logitecMouse.setPrice(89.99);
+		logitecMouse.setWireless(true);
+		logitecMouse.addCompatibleDevices(asusRog);
+		addAccessory(logitecMouse);
+		
 		
 		
 		// Create shops
@@ -551,6 +565,13 @@ public class MapShopRepository implements ShopRepository {
 		elCorteIngles.setName("El Corte Ingles");
 		elCorteIngles.setUrl("https://www.elcorteingles.es/");
 		addShop(elCorteIngles);
+		
+		//Carrefure
+		Shop carrefure = new Shop();
+		carrefure.setName("Carrefure");
+		carrefure.setUrl("carrefure.es");
+		carrefure.addComplement(siliconCase);
+		addShop(carrefure);
 
 		// Add devices to shops
 
@@ -682,6 +703,30 @@ public class MapShopRepository implements ShopRepository {
 	@Override
 	public void removeDevice(Integer shopId, Integer deviceId) {
 		getShop(shopId).deleteDevice(deviceId);
+	}
+	
+	@Override
+	public void addComplementShop(Integer shopId, Integer complementId) {
+		Shop shop = getShop(shopId);
+		shop.addComplement(complementMap.get(complementId));;		
+	}
+
+	@Override
+	public void removeComplementShop(Integer shopId, Integer complementId) {
+		getShop(shopId).deleteComplement(complementId);
+		
+	}
+
+	@Override
+	public void addAccessoryShop(Integer shopId, Integer accessoryId) {
+		Shop shop = getShop(shopId);
+		shop.addAccessory(accessoryMap.get(accessoryId));
+	}
+
+	@Override
+	public void removeAccessoryShop(Integer shopId, Integer accessoryId) {
+		getShop(shopId).deleteAccessory(accessoryId);
+		
 	}
 	
 	// Accessory

@@ -16,6 +16,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
@@ -112,8 +113,8 @@ public class ComplementResource {
 	}
 	
 	@POST
-	@Consumes("application/json")
-	@Produces("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response addComplement(@Context UriInfo uriInfo, Complement complement) {
 		if (complement.getName() == null || "".equals(complement.getName())) {
 			throw new BadRequestException("The name of the complement must not be null");
@@ -173,8 +174,8 @@ public class ComplementResource {
 	
 	@POST	
 	@Path("/{complementId}/{deviceId}")
-	@Consumes("text/plain")
-	@Produces("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response addDevice(@Context UriInfo uriInfo,@PathParam("complementId") String complementId, @PathParam("deviceId") String deviceId)
 	{				
 		
@@ -190,7 +191,7 @@ public class ComplementResource {
 		if (complement.getCompatibleDevices().contains(device)==true)
 			throw new BadRequestException("The device is already included in the compatibleDevices list of accessories");
 			
-		repository.addDevice(Integer.valueOf(complementId), Integer.valueOf(deviceId));		
+		repository.addDeviceComplement(Integer.valueOf(complementId), Integer.valueOf(deviceId));		
 
 		// Builds the response
 		UriBuilder ub = uriInfo.getAbsolutePathBuilder().path(this.getClass(), "get");
@@ -214,7 +215,7 @@ public class ComplementResource {
 			throw new NotFoundException("The device with id=" + deviceId + " was not found");
 		
 		
-		repository.removeDevice(Integer.valueOf(complementId), Integer.valueOf(deviceId));		
+		repository.removeDeviceComplement(Integer.valueOf(complementId), Integer.valueOf(deviceId));		
 		
 		return Response.noContent().build();
 	}

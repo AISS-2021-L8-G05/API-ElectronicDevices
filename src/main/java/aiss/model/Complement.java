@@ -17,6 +17,11 @@ public class Complement {
 		this.material = material;
 		this.price = price;
 		this.compatibleDevices = new HashSet<Device>(compatibleDevices);
+//		if(compatibleDevices == null ) {
+//			this.compatibleDevices = new HashSet<Device>();
+//		}else {		
+//			this.compatibleDevices = new HashSet<Device>(compatibleDevices);
+//		}
 	}
 
 	public Complement(Integer complementId, String name, String material, Double price,
@@ -27,6 +32,11 @@ public class Complement {
 		this.material = material;
 		this.price = price;
 		this.compatibleDevices = new HashSet<Device>(compatibleDevices);
+//		if(compatibleDevices == null ) {
+//			this.compatibleDevices = new HashSet<Device>();
+//		}else {		
+//			this.compatibleDevices = new HashSet<Device>(compatibleDevices);
+//		}
 	}
 
 	public Complement() {
@@ -73,8 +83,10 @@ public class Complement {
 		this.price = price;
 	}
 	
-	public void addCompatibleDevies(Set<Device> s) {
-		this.compatibleDevices = s;
+	public void addCompatibleDevices(Device d) {
+		if(this.compatibleDevices == null) this.compatibleDevices = new HashSet<Device>();
+		
+		this.compatibleDevices.add(d);
 	}
 		
 }

@@ -16,6 +16,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
@@ -33,7 +34,7 @@ import aiss.api.resources.comparators.ComparatorPriceAccessoryReversed;
 import aiss.model.Accessory;
 import aiss.model.Device;
 
-@Path("/accesories")
+@Path("/accessories")
 public class AccessoryResource {
 	
 	public static AccessoryResource _instance=null;
@@ -113,8 +114,8 @@ public class AccessoryResource {
 	}
 	
 	@POST
-	@Consumes("application/json")
-	@Produces("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response addAccessory(@Context UriInfo uriInfo, Accessory accessory) {
 		if (accessory.getName() == null || "".equals(accessory.getName())) {
 			throw new BadRequestException("The name of the accessory must not be null");
@@ -174,8 +175,8 @@ public class AccessoryResource {
 	
 	@POST	
 	@Path("/{accessoryId}/{deviceId}")
-	@Consumes("text/plain")
-	@Produces("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response addDevice(@Context UriInfo uriInfo,@PathParam("accessoryId") String accessoryId, @PathParam("deviceId") String deviceId)
 	{				
 		
@@ -191,7 +192,7 @@ public class AccessoryResource {
 		if (accessory.getCompatibleDevices().contains(device)==true)
 			throw new BadRequestException("The device is already included in the compatibleDevices list of accessories");
 			
-		repository.addDevice(Integer.valueOf(accessoryId), Integer.valueOf(deviceId));		
+		repository.addDeviceAccessory(Integer.valueOf(accessoryId), Integer.valueOf(deviceId));		
 
 		// Builds the response
 		UriBuilder ub = uriInfo.getAbsolutePathBuilder().path(this.getClass(), "get");
@@ -215,7 +216,7 @@ public class AccessoryResource {
 			throw new NotFoundException("The device with id=" + deviceId + " was not found");
 		
 		
-		repository.removeDevice(Integer.valueOf(accessoryId), Integer.valueOf(deviceId));		
+		repository.removeDeviceAccessory(Integer.valueOf(accessoryId), Integer.valueOf(deviceId));		
 		
 		return Response.noContent().build();
 	}

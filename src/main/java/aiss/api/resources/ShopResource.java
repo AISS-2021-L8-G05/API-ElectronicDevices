@@ -16,6 +16,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
@@ -26,6 +27,8 @@ import org.jboss.resteasy.spi.NotFoundException;
 
 import aiss.api.resources.comparators.ComparatorNameShop;
 import aiss.api.resources.comparators.ComparatorNameShopReversed;
+import aiss.model.Accessory;
+import aiss.model.Complement;
 import aiss.model.Device;
 import aiss.model.Shop;
 import aiss.model.repository.MapShopRepository;
@@ -96,8 +99,8 @@ public class ShopResource {
 	}
 	
 	@POST
-	@Consumes("application/json")
-	@Produces("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response addShop(@Context UriInfo uriInfo, Shop shop) {
 		if (shop.getName() == null || "".equals(shop.getName()))
 			throw new BadRequestException("The name of the shop must not be null");
@@ -127,6 +130,12 @@ public class ShopResource {
 		if (shop.getDevices()!=null)
 			throw new BadRequestException("The devices property is not editable.");
 		
+		if(shop.getAccesories()!=null)
+			throw new BadRequestException("The accessories property is not editable.");
+		
+		if(shop.getComplements()!=null)
+			throw new BadRequestException("The complements property is not editable.");
+		
 		// Update name
 		if (shop.getName()!=null)
 			oldshop.setName(shop.getName());
@@ -153,8 +162,8 @@ public class ShopResource {
 	
 	@POST	
 	@Path("/{shopId}/{deviceId}")
-	@Consumes("text/plain")
-	@Produces("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response addDevice(@Context UriInfo uriInfo,@PathParam("shopId") String shopId, @PathParam("deviceId") String deviceId)
 	{				
 		
@@ -198,4 +207,103 @@ public class ShopResource {
 		
 		return Response.noContent().build();
 	}
+	
+	// complements
+	@POST	
+	@Path("/complements/{shopId}/{complementId}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response addComplementResource(@Context UriInfo uriInfo,@PathParam("shopId") String shopId, @PathParam("complementId") String complementId)
+	{				
+		
+		Shop shop = repository.getShop(Integer.valueOf(shopId));
+		Complement complement = repository.getComplement(Integer.valueOf(complementId));
+		
+		if (shop==null)
+			throw new NotFoundException("The shop with id=" + shopId + " was not found");
+		
+		if (complement==null)
+			throw new NotFoundException("The complement with id=" + complementId + " was not found");
+		
+		if (shop.getComplement(Integer.valueOf(complementId))!=null)
+			throw new BadRequestException("The complement is already included in the shop.");
+		
+		repository.addComplementShop(Integer.valueOf(shopId), Integer.valueOf(complementId));		
+
+		// Builds the response
+		UriBuilder ub = uriInfo.getAbsolutePathBuilder().path(this.getClass(), "get");
+		URI uri = ub.build(shopId);
+		ResponseBuilder resp = Response.created(uri);
+		resp.entity(shop);			
+		return resp.build();
+	}
+	
+	
+	@DELETE
+	@Path("/complements/{shopId}/{complementId}")
+	public Response removeComplementResource(@PathParam("shopId") String shopId, @PathParam("complementId") String complementId) {
+		Shop shop = repository.getShop(Integer.valueOf(shopId));
+		Complement complement = repository.getComplement(Integer.valueOf(complementId));
+		
+		if (shop==null)
+			throw new NotFoundException("The shop with id=" + shopId + " was not found");
+		
+		if (complement==null)
+			throw new NotFoundException("The complement with id=" + complementId + " was not found");
+		
+		
+		repository.removeComplementShop(Integer.valueOf(shopId), Integer.valueOf(complementId));		
+		
+		return Response.noContent().build();
+	}
+	
+	// accessories
+	@POST	
+	@Path("/accessories/{shopId}/{accessoryId}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response addAccessoryResource(@Context UriInfo uriInfo,@PathParam("shopId") String shopId, @PathParam("accessoryId") String accessoryId)
+	{				
+		
+		Shop shop = repository.getShop(Integer.valueOf(shopId));
+		Accessory accessory = repository.getAccessory(Integer.valueOf(accessoryId));
+		
+		if (shop==null)
+			throw new NotFoundException("The shop with id=" + shopId + " was not found");
+		
+		if (accessory==null)
+			throw new NotFoundException("The accessory with id=" + accessoryId + " was not found");
+		
+		if (shop.getAccessory(Integer.valueOf(accessoryId))!=null)
+			throw new BadRequestException("The accessory is already included in the shop.");
+		
+		repository.addAccessoryShop(Integer.valueOf(shopId), Integer.valueOf(accessoryId));		
+
+		// Builds the response
+		UriBuilder ub = uriInfo.getAbsolutePathBuilder().path(this.getClass(), "get");
+		URI uri = ub.build(shopId);
+		ResponseBuilder resp = Response.created(uri);
+		resp.entity(shop);			
+		return resp.build();
+	}
+	
+	
+	@DELETE
+	@Path("/accessories/{shopId}/{accessoryId}")
+	public Response removeAccessoryResource(@PathParam("shopId") String shopId, @PathParam("accessoryId") String accessoryId) {
+		Shop shop = repository.getShop(Integer.valueOf(shopId));
+		Accessory accessory = repository.getAccessory(Integer.valueOf(accessoryId));
+		
+		if (shop==null)
+			throw new NotFoundException("The shop with id=" + shopId + " was not found");
+		
+		if (accessory==null)
+			throw new NotFoundException("The accessory with id=" + accessoryId + " was not found");
+		
+		
+		repository.removeAccessoryShop(Integer.valueOf(shopId), Integer.valueOf(accessoryId));		
+		
+		return Response.noContent().build();
+	}
+	
 }

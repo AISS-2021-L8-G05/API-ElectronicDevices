@@ -16,7 +16,13 @@ public class Accessory {
 		this.name = name;
 		this.wireless = wireless;
 		this.price = price;
-		this.compatibleDevices = new HashSet<>(compatibleDevices);
+		
+		if(compatibleDevices == null) {
+			this.compatibleDevices = new HashSet<Device>();
+		}else {
+			this.compatibleDevices = new HashSet<>(compatibleDevices);
+		}
+		
 	}
 
 	public Accessory(Integer accessoryId, String name, Boolean wireless, Double price, Set<Device> compatibleDevices) {
@@ -25,7 +31,13 @@ public class Accessory {
 		this.name = name;
 		this.wireless = wireless;
 		this.price = price;
-		this.compatibleDevices = new HashSet<>(compatibleDevices);
+
+		if(compatibleDevices == null) {
+			this.compatibleDevices = new HashSet<Device>();
+		}else {
+			this.compatibleDevices = new HashSet<>(compatibleDevices);
+		}
+		
 	}				
 
 	public Accessory() {
@@ -71,5 +83,10 @@ public class Accessory {
 	public void setPrice(Double price) {
 		this.price = price;
 	}	
+	
+	public void addCompatibleDevices(Device d) {
+		if(this.compatibleDevices == null) this.compatibleDevices = new HashSet<Device>();
+		this.compatibleDevices.add(d);
+	}
 
 }

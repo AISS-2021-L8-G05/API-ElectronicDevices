@@ -25,6 +25,10 @@ public interface ShopRepository {
 	public Collection<Device> getAll(Integer shopId);
 	public void addDevice(Integer shopId, Integer deviceId);
 	public void removeDevice(Integer shopId, Integer deviceId);
+	public void addComplementShop (Integer shopId, Integer complementId);
+	public void removeComplementShop (Integer shopId, Integer complementId);
+	public void addAccessoryShop (Integer shopId, Integer accessoryId);
+	public void removeAccessoryShop(Integer shopId, Integer accessoryId);
 	
 	// Accessory
 	public void addAccessory(Accessory a);
