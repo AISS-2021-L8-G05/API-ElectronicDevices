@@ -162,7 +162,7 @@ public class ShopResource {
 	
 	@POST	
 	@Path("/{shopId}/{deviceId}")
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Consumes("text/plain")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addDevice(@Context UriInfo uriInfo,@PathParam("shopId") String shopId, @PathParam("deviceId") String deviceId)
 	{				
@@ -211,7 +211,7 @@ public class ShopResource {
 	// complements
 	@POST	
 	@Path("/complements/{shopId}/{complementId}")
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Consumes("text/plain")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addComplementResource(@Context UriInfo uriInfo,@PathParam("shopId") String shopId, @PathParam("complementId") String complementId)
 	{				
@@ -260,7 +260,7 @@ public class ShopResource {
 	// accessories
 	@POST	
 	@Path("/accessories/{shopId}/{accessoryId}")
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Consumes("text/plain")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addAccessoryResource(@Context UriInfo uriInfo,@PathParam("shopId") String shopId, @PathParam("accessoryId") String accessoryId)
 	{				

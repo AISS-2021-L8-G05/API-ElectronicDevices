@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -175,7 +176,7 @@ public class AccessoryResource {
 	
 	@POST	
 	@Path("/{accessoryId}/{deviceId}")
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.TEXT_PLAIN)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addDevice(@Context UriInfo uriInfo,@PathParam("accessoryId") String accessoryId, @PathParam("deviceId") String deviceId)
 	{				
@@ -189,8 +190,10 @@ public class AccessoryResource {
 		if (device==null)
 			throw new NotFoundException("The device with id=" + deviceId + " was not found");
 		
-		if (accessory.getCompatibleDevices().contains(device)==true)
+		if (accessory.getCompatibleDevices()!=null && accessory.getCompatibleDevices().contains(device)==true)
 			throw new BadRequestException("The device is already included in the compatibleDevices list of accessories");
+		
+		if(accessory.getCompatibleDevices()==null) accessory.setCompatibleDevices(new HashSet<Device>());
 			
 		repository.addDeviceAccessory(Integer.valueOf(accessoryId), Integer.valueOf(deviceId));		
 

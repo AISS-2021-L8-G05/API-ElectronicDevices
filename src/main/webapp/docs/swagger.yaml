@@ -216,7 +216,7 @@ paths:
         '200':
           description: Search results matching criteria
           content:
-            aplication/json:
+            application/json:
               schema:
                 $ref: '#/components/schemas/Complement'
         '400':
@@ -302,7 +302,7 @@ paths:
           description: Complement deleted
         '404':
           description: Complement not found
-  '/complements/{complementId}{deviceId}':
+  '/complements/{complementId}/{deviceId}':
     post:
       tags: 
         - Complements
@@ -409,7 +409,7 @@ paths:
         '200':
           description: Search results matching criteria
           content:
-            aplication/json:
+            application/json:
               schema:
                 $ref: '#/components/schemas/Accessory'
         '400':

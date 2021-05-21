@@ -15,9 +15,9 @@
     <div class="titulo d-flex flex-row justify-content-center align-items-center text-center"><div><img class="logo" src="iconAPI.png" alt=""></div><div class="textoColor fs-1">Electronic Devices</div></div>
     <nav class="container-fluid">
         <div class="row mb-5 justify-content-md-center">
-            <a href="index.html" class="text-decoration-none navSection col text-center d-flex justify-content-center align-items-center"><div class="textoNegro text-center fs-2">Inicio</div></a>
-            <a href="https://api-electronicdevices-313314.nw.r.appspot.com/docs/index.html" class="text-decoration-none navSection col text-center d-flex justify-content-center align-items-center"><div class="textoNegro text-center fs-2">Swagger UI</div></a>
-            <a href="developers.html" class="text-decoration-none navSection col text-center d-flex justify-content-center align-items-center"><div class="textoNegro text-center fs-2">Desarrolladores</div></a>
+            <a href="index.html" class="text-decoration-none navSection col text-center d-flex justify-content-center align-items-center"><div class="textoNegro text-center fs-2">Home</div></a>
+            <a href="/docs/index.html" class="text-decoration-none navSection col text-center d-flex justify-content-center align-items-center"><div class="textoNegro text-center fs-2">Swagger UI</div></a>
+            <a href="developers.html" class="text-decoration-none navSection col text-center d-flex justify-content-center align-items-center"><div class="textoNegro text-center fs-2">Developers</div></a>
         </div>
     </nav>
 
@@ -29,7 +29,7 @@
           <thead>
             <tr class="table-active">
               <th scope="col">Device</th>
-              <th scope="col">Atributo</th>
+              <th scope="col">Attribute</th>
             </tr>
           </thead>
           <tbody>
@@ -83,7 +83,7 @@
             </tr>
             <tr>
               <th scope="row">12</th>
-              <td>Screen Size</td>
+              <td>ScreenSize</td>
             </tr>
            
           </tbody>
@@ -91,8 +91,68 @@
         <table class="table table-sm">
           <thead>
             <tr class="table-active">
+              <th scope="col">Complement</th>
+              <th scope="col">Attribute</th>
+            </tr>
+          </thead>
+          <tbody>
+          	<tr>
+              <th scope="row">0</th>
+              <td>ComplementId</td>
+            </tr>
+            <tr class="table-info">
+              <th scope="row">1</th>
+              <td>Name</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Wireless</td>
+            </tr>
+            <tr class="table-info">
+              <th scope="row">3</th>
+              <td>Price</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>CompatibleDevices</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table table-sm">
+          <thead>
+            <tr class="table-active">
+              <th scope="col">Accessory</th>
+              <th scope="col">Attribute</th>
+            </tr>
+          </thead>
+          <tbody>
+          	<tr>
+              <th scope="row">0</th>
+              <td>AccessoryId</td>
+            </tr>
+            <tr class="table-info">
+              <th scope="row">1</th>
+              <td>Name</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Material</td>
+            </tr>
+            <tr class="table-info">
+              <th scope="row">3</th>
+              <td>Price</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>CompatibleDevices</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table table-sm">
+          <thead>
+            <tr class="table-active">
               <th scope="col">Shop</th>
-              <th scope="col">Atributo</th>
+              <th scope="col">Attribute</th>
             </tr>
           </thead>
           <tbody>
@@ -110,7 +170,7 @@
             </tr>
             <tr class="table-info">
               <th scope="row">3</th>
-              <td>Device List</td>
+              <td>DevicesList</td>
             </tr>
           </tbody>
         </table>

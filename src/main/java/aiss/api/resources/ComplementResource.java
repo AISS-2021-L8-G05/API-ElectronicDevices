@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -52,8 +53,8 @@ public class ComplementResource {
 	}
 	
 	@GET
-	@Produces("application/json")
-	public Collection<Complement> getALll(@QueryParam("order") String order, @QueryParam("isEmpty") Boolean isEmpty, 
+	@Produces(MediaType.APPLICATION_JSON)
+	public Collection<Complement> getAll(@QueryParam("order") String order, @QueryParam("isEmpty") Boolean isEmpty, 
 			@QueryParam("name") String name, @QueryParam("material") String material) {
 		
 		List<Complement> res = new ArrayList<>(repository.getAllComplement());
@@ -113,7 +114,7 @@ public class ComplementResource {
 	}
 	
 	@POST
-	@Consumes("text/plain")
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addComplement(@Context UriInfo uriInfo, Complement complement) {
 		if (complement.getName() == null || "".equals(complement.getName())) {
@@ -174,7 +175,7 @@ public class ComplementResource {
 	
 	@POST	
 	@Path("/{complementId}/{deviceId}")
-	@Consumes("text/plain")
+	@Consumes(MediaType.TEXT_PLAIN)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addDevice(@Context UriInfo uriInfo,@PathParam("complementId") String complementId, @PathParam("deviceId") String deviceId)
 	{				
@@ -188,8 +189,10 @@ public class ComplementResource {
 		if (device==null)
 			throw new NotFoundException("The device with id=" + deviceId + " was not found");
 		
-		if (complement.getCompatibleDevices().contains(device)==true)
+		if (complement.getCompatibleDevices()!=null && complement.getCompatibleDevices().contains(device)==true)
 			throw new BadRequestException("The device is already included in the compatibleDevices list of accessories");
+		
+		if(complement.getCompatibleDevices() == null) complement.setCompatibleDevices(new HashSet<Device>());
 			
 		repository.addDeviceComplement(Integer.valueOf(complementId), Integer.valueOf(deviceId));		
 
