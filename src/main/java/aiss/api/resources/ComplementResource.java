@@ -113,7 +113,7 @@ public class ComplementResource {
 	}
 	
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Consumes("text/plain")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addComplement(@Context UriInfo uriInfo, Complement complement) {
 		if (complement.getName() == null || "".equals(complement.getName())) {
@@ -174,7 +174,7 @@ public class ComplementResource {
 	
 	@POST	
 	@Path("/{complementId}/{deviceId}")
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Consumes("text/plain")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addDevice(@Context UriInfo uriInfo,@PathParam("complementId") String complementId, @PathParam("deviceId") String deviceId)
 	{				
