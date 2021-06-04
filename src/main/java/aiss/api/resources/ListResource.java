@@ -104,44 +104,31 @@ public class ListResource {
 	
 	public boolean addGameList(String listId, String gameId) {
 		ClientResource cr = null;
-		Boolean success = true;
-		
-		GameResource gr = new GameResource();
-		
-		List list = getList(listId);
-		Game game = gr.getGame(gameId);
-		list.getGames().add(game);
+		boolean succes = true;
 		
 		try {
-			cr = new ClientResource(uri);
+			cr = new ClientResource(uri+"/"+listId+"/"+gameId);
 			cr.setEntityBuffering(true);
-			cr.put(list);
-			
-		} catch (ResourceException e) {
-			System.err.println("Error when retrieving the list: " + cr.getResponse().getStatus());
-			success = false;
+			cr.post(" ");
+		} catch (ResourceException re) {
+			System.err.println("Error when adding the lists: "+cr.getResponse().getStatus());
+			succes = false;
 		}
 		
-		return success;
+		return succes;
 	}
 	
 	public boolean deleteGameList(String listId, String gameId) {
+		
 		ClientResource cr = null;
-		Boolean success = true;
-		
-		GameResource gr = new GameResource();
-		
-		List list = getList(listId);
-		Game game = gr.getGame(gameId);
-		list.getGames().remove(game);
+		boolean success = true;
 		
 		try {
-			cr = new ClientResource(uri);
+			cr = new ClientResource(uri+"/"+listId+"/"+gameId);
 			cr.setEntityBuffering(true);
-			cr.put(list);
-			
-		} catch (ResourceException e) {
-			System.err.println("Error when retrieving the list: " + cr.getResponse().getStatus());
+			cr.delete();
+		} catch (ResourceException re) {
+			System.err.println("Error when adding the lists: "+cr.getResponse().getStatus());
 			success = false;
 		}
 		
